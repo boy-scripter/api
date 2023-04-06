@@ -33,7 +33,6 @@ async function registerLogic(req, res) {
                 msg: "Phone no. Already Exist"
             })
         }
-        console.log(nameCheck, phoneCheck, emailCheck, passwordCheck)
 
         if (nameCheck && phoneCheck && emailCheck && passwordCheck) {
             const user = await Usermodel.create({ name, phone, email, password, confirmpassword })

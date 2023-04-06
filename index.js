@@ -1,11 +1,13 @@
 const express = require('express')
 const RegisterRouter = require('./routers/RegisterRouter')
-const LoginRouter = require('./routers/LoginRouter')
+const LoginRouter = require('./routers/LoginRouter');
+const ProfileRouter = require('./routers/Profile');
 const cors = require("cors")
 const { ALLOWEDORIGIN } = require('./config')
 const app = express();
-const PORT = 3000 ;
+const PORT = 8000;
 app.use(express.json());
+
 app.use(cors({
     origin: ALLOWEDORIGIN
 }))
@@ -17,6 +19,7 @@ app.all('/', (req, res) => {
 
 app.use('/api', RegisterRouter);
 app.use('/api', LoginRouter);
+app.use('/api', ProfileRouter);
 
-app.listen(PORT )
+app.listen(PORT)
 

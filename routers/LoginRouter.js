@@ -12,8 +12,6 @@ const LoginLogic = async (req, res) => {
 
 
     try {
-
-
         //only for ensuring we accept two parameters
         if (Object.keys(req.body).length != 2) throw new Error();
         /*ends */
@@ -54,10 +52,11 @@ const LoginLogic = async (req, res) => {
 
 
     } catch (err) {
-        console.log(err)
-        return res.status(500).json({
+
+      return  res.status(500).json({
             msg: "server error"
         })
+
     }
 }
 

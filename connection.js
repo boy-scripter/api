@@ -5,10 +5,6 @@ const { DATABASEURL } = require('./config')
 mongoose.connect(DATABASEURL).then(() => console.log('connection successful')).catch(() => console.log('Wrong Connection'))
 
 const userSchema = mongoose.Schema({
-    accountCreatedAt: {
-        type: Date,
-        default: Date.now
-    },
     email: {
         type: String,
         required: true,
@@ -41,8 +37,11 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
 
-    }
-})
+    },
+    gender: String,
+    lname: String,
+    age: Number
+}, { timestamp: true })
 
 const Usermodel = mongoose.model('user', userSchema)
 
